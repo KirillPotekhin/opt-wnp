@@ -529,20 +529,21 @@
   font-size: 18px;
   border: 0;
   border-bottom: 2px solid #212121;
+  border-radius: 0;
   outline: none;
 }
 
-/* line 36, src/sass/components/_form.scss */
+/* line 37, src/sass/components/_form.scss */
 .form__name-input:focus, .form__number-input:focus, .form__email-input:focus {
   border-bottom: 2px solid red;
 }
 
-/* line 41, src/sass/components/_form.scss */
+/* line 42, src/sass/components/_form.scss */
 .form__number-wrapper, .email-wrapper {
   position: relative;
 }
 
-/* line 45, src/sass/components/_form.scss */
+/* line 46, src/sass/components/_form.scss */
 .form__number-icon, .form__email-icon {
   position: absolute;
   bottom: 8px;
