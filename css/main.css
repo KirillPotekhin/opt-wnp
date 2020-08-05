@@ -280,29 +280,30 @@
 .catalog .catalog__table-cell {
   padding: 10px 0;
   vertical-align: top;
+  text-decoration: none;
 }
 
-/* line 71, src/sass/components/_catalog.scss */
+/* line 72, src/sass/components/_catalog.scss */
 .catalog .catalog__table-cell--padding {
   padding-top: 0;
 }
 
-/* line 75, src/sass/components/_catalog.scss */
+/* line 76, src/sass/components/_catalog.scss */
 .catalog .catalog__table-cell + .catalog__table-cell {
   padding-left: 16px;
 }
 
-/* line 80, src/sass/components/_catalog.scss */
+/* line 81, src/sass/components/_catalog.scss */
 .catalog .catalog__table-cell--font {
   font-weight: 600;
 }
 
-/* line 84, src/sass/components/_catalog.scss */
+/* line 85, src/sass/components/_catalog.scss */
 .catalog .catalog__table-line + .catalog__table-line {
   border-top: 2px solid #21212133;
 }
 
-/* line 88, src/sass/components/_catalog.scss */
+/* line 89, src/sass/components/_catalog.scss */
 .catalog .catalog__item--reverse-color {
   background: #212121;
   color: #ffffff;
@@ -310,159 +311,159 @@
   padding-bottom: 16px;
 }
 
-/* line 94, src/sass/components/_catalog.scss */
+/* line 95, src/sass/components/_catalog.scss */
 .catalog .catalog__item--reverse-color .catalog__table-line + .catalog__table-line {
   border-top: 2px solid #d2d2d233;
 }
 
-/* line 98, src/sass/components/_catalog.scss */
+/* line 99, src/sass/components/_catalog.scss */
 .catalog .catalog__item--reverse-color .slick-dots li button:before {
   color: white;
 }
 
-/* line 103, src/sass/components/_catalog.scss */
+/* line 104, src/sass/components/_catalog.scss */
 .catalog .slick-prev {
   left: 10px;
   z-index: 1;
 }
 
-/* line 108, src/sass/components/_catalog.scss */
+/* line 109, src/sass/components/_catalog.scss */
 .catalog .slick-next {
   right: 10px;
 }
 
-/* line 112, src/sass/components/_catalog.scss */
+/* line 113, src/sass/components/_catalog.scss */
 .catalog .slick-prev:before, .catalog .slick-next:before {
   opacity: .75;
   color: #212121;
 }
 
 @media (min-width: 375px) {
-  /* line 119, src/sass/components/_catalog.scss */
+  /* line 120, src/sass/components/_catalog.scss */
   .catalog__tabs-list {
     font-size: 22px;
   }
-  /* line 123, src/sass/components/_catalog.scss */
+  /* line 124, src/sass/components/_catalog.scss */
   .catalog__tabs-item + .catalog__tabs-item {
     margin-left: 24px;
   }
 }
 
 @media (min-width: 720px) {
-  /* line 131, src/sass/components/_catalog.scss */
+  /* line 132, src/sass/components/_catalog.scss */
   .catalog .catalog__item .container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  /* line 136, src/sass/components/_catalog.scss */
+  /* line 137, src/sass/components/_catalog.scss */
   .catalog .catalog__item-pictures {
     width: 50%;
     margin-bottom: 0;
   }
-  /* line 141, src/sass/components/_catalog.scss */
+  /* line 142, src/sass/components/_catalog.scss */
   .catalog .catalog__item-description {
     margin-left: 16px;
   }
-  /* line 146, src/sass/components/_catalog.scss */
+  /* line 147, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
-  /* line 150, src/sass/components/_catalog.scss */
+  /* line 151, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-pictures {
     margin-left: 16px;
   }
-  /* line 154, src/sass/components/_catalog.scss */
+  /* line 155, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-description {
     margin-left: 0;
   }
-  /* line 159, src/sass/components/_catalog.scss */
+  /* line 160, src/sass/components/_catalog.scss */
   .catalog .catalog__table {
     font-size: 16px;
   }
-  /* line 163, src/sass/components/_catalog.scss */
+  /* line 164, src/sass/components/_catalog.scss */
   .catalog .slick-dots {
     bottom: 9px;
   }
-  /* line 166, src/sass/components/_catalog.scss */
+  /* line 167, src/sass/components/_catalog.scss */
   .catalog .slick-dots li button:before {
     color: black;
   }
-  /* line 173, src/sass/components/_catalog.scss */
+  /* line 174, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .slick-dots li button:before {
     color: black;
   }
 }
 
 @media (min-width: 960px) {
-  /* line 183, src/sass/components/_catalog.scss */
+  /* line 184, src/sass/components/_catalog.scss */
   .catalog .catalog__tabs-list {
     margin: 36px 0 0;
     font-size: 24px;
   }
-  /* line 188, src/sass/components/_catalog.scss */
+  /* line 189, src/sass/components/_catalog.scss */
   .catalog .catalog__tabs-content {
     margin-top: 50px;
   }
-  /* line 192, src/sass/components/_catalog.scss */
+  /* line 193, src/sass/components/_catalog.scss */
   .catalog .catalog__tabs-item + .catalog__tabs-item {
     margin-left: 24px;
   }
-  /* line 197, src/sass/components/_catalog.scss */
+  /* line 198, src/sass/components/_catalog.scss */
   .catalog .catalog__tabs-item:before {
     bottom: -14px;
   }
-  /* line 202, src/sass/components/_catalog.scss */
+  /* line 203, src/sass/components/_catalog.scss */
   .catalog .catalog__item-description {
     margin-left: 24px;
   }
-  /* line 206, src/sass/components/_catalog.scss */
+  /* line 207, src/sass/components/_catalog.scss */
   .catalog .catalog__table {
     font-size: 22px;
   }
-  /* line 210, src/sass/components/_catalog.scss */
+  /* line 211, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell {
     padding: 13px 0;
   }
-  /* line 214, src/sass/components/_catalog.scss */
+  /* line 215, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell--padding {
     padding-top: 0;
   }
-  /* line 219, src/sass/components/_catalog.scss */
+  /* line 220, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-pictures {
     margin-left: 24px;
   }
 }
 
 @media (min-width: 1150px) {
-  /* line 228, src/sass/components/_catalog.scss */
+  /* line 229, src/sass/components/_catalog.scss */
   .catalog .catalog__tabs-list {
     font-size: 30px;
   }
-  /* line 232, src/sass/components/_catalog.scss */
+  /* line 233, src/sass/components/_catalog.scss */
   .catalog .catalog__tabs-item + .catalog__tabs-item {
     margin-left: 34px;
   }
-  /* line 236, src/sass/components/_catalog.scss */
+  /* line 237, src/sass/components/_catalog.scss */
   .catalog .catalog__table {
     font-size: 24px;
   }
-  /* line 240, src/sass/components/_catalog.scss */
+  /* line 241, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell {
     padding: 17px 0;
   }
-  /* line 244, src/sass/components/_catalog.scss */
+  /* line 245, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell--padding {
     padding-top: 0;
   }
-  /* line 248, src/sass/components/_catalog.scss */
+  /* line 249, src/sass/components/_catalog.scss */
   .catalog .catalog__item-description {
     margin-left: 34px;
   }
-  /* line 253, src/sass/components/_catalog.scss */
+  /* line 254, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-pictures {
     margin-left: 34px;
   }
@@ -528,7 +529,7 @@
   font-size: 18px;
   border: 0;
   border-bottom: 2px solid #212121;
-  outline: 0;
+  outline: none;
 }
 
 /* line 36, src/sass/components/_form.scss */
