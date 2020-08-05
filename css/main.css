@@ -564,19 +564,23 @@
   text-decoration: none;
   white-space: nowrap;
   color: white;
-  -webkit-appearance: none;
 }
 
-/* line 15, src/sass/components/_button.scss */
+/* line 14, src/sass/components/_button.scss */
 .button:hover {
   opacity: 0.85;
 }
 
-/* line 20, src/sass/components/_button.scss */
+/* line 19, src/sass/components/_button.scss */
 .button--color {
   border-color: #212121;
   background-color: #212121;
   color: #ffffff;
+}
+
+/* line 25, src/sass/components/_button.scss */
+input, button {
+  -webkit-appearance: none;
 }
 
 /* line 1, src/sass/components/_page-footer.scss */
