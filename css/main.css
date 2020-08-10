@@ -17,9 +17,11 @@
 
 /* line 1, src/sass/components/_page-header.scss */
 .page-header {
+  position: fixed;
   width: 100%;
   background-color: #212121;
   color: #ffffff;
+  z-index: 1500;
 }
 
 /* line 1, src/sass/components/_container.scss */
@@ -97,7 +99,7 @@
 }
 
 /* line 11, src/sass/components/_main-nav.scss */
-.main-nav__logo {
+.main-nav__logo-img {
   padding: 8px 8px 8px 0px;
 }
 
@@ -113,19 +115,20 @@
 .main-nav__feedback {
   font-size: 20px;
   line-height: 1.2;
+  cursor: pointer;
 }
 
-@media (min-width: 768px) {
-  /* line 26, src/sass/components/_main-nav.scss */
+@media (min-width: 375px) {
+  /* line 27, src/sass/components/_main-nav.scss */
   .main-nav__logo-img {
     width: 130px;
     height: 18px;
-    padding: 16px 16px 16px 0px;
+    padding: 32px 32px 32px 0px;
   }
 }
 
-@media (min-width: 1150px) {
-  /* line 34, src/sass/components/_main-nav.scss */
+@media (min-width: 540px) {
+  /* line 35, src/sass/components/_main-nav.scss */
   .main-nav__logo-img {
     width: 168px;
     height: 42px;
@@ -134,7 +137,7 @@
 
 /* line 1, src/sass/components/_page-main.scss */
 .page-main {
-  padding: 24px 0;
+  padding: 106px 0 24px 0;
 }
 
 @media (min-width: 960px) {
@@ -197,12 +200,7 @@
 }
 
 /* line 2, src/sass/components/_catalog.scss */
-.catalog .catalog__item + .catalog__item {
-  margin-top: 24px;
-}
-
-/* line 6, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-list {
+.catalog .catalog__tabs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -212,98 +210,56 @@
   font-size: 20px;
 }
 
-/* line 14, src/sass/components/_catalog.scss */
+/* line 62, src/sass/components/_catalog.scss */
 .catalog .catalog__tabs-content {
   margin-top: 34px;
 }
 
-/* line 18, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-item + .catalog__tabs-item {
-  margin-left: 18px;
+/* line 66, src/sass/components/_catalog.scss */
+.catalog .catalog__item + .catalog__item {
+  margin-top: 24px;
 }
 
-/* line 22, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-item {
-  position: relative;
-  opacity: .5;
-  font-weight: 600;
-}
-
-/* line 27, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-item:before {
-  content: "";
-  position: absolute;
-  bottom: -9px;
-  left: 50%;
-  border-radius: 4px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  border: 0;
-  opacity: .75;
-}
-
-/* line 38, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-item:hover {
-  opacity: 1;
-}
-
-/* line 41, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-item:hover:before {
-  border: 4px solid #212121;
-  opacity: .75;
-}
-
-/* line 47, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-item.active {
-  opacity: 1;
-}
-
-/* line 50, src/sass/components/_catalog.scss */
-.catalog .catalog__tabs-item.active:before {
-  width: 95%;
-  border: 4px solid #212121;
-}
-
-/* line 57, src/sass/components/_catalog.scss */
+/* line 70, src/sass/components/_catalog.scss */
 .catalog .catalog__item-img {
   width: 100%;
   height: auto;
   border-radius: 16px;
 }
 
-/* line 63, src/sass/components/_catalog.scss */
+/* line 76, src/sass/components/_catalog.scss */
 .catalog .catalog__table {
   border-collapse: collapse;
 }
 
-/* line 67, src/sass/components/_catalog.scss */
+/* line 80, src/sass/components/_catalog.scss */
 .catalog .catalog__table-cell {
   padding: 10px 0;
   vertical-align: top;
   text-decoration: none;
 }
 
-/* line 72, src/sass/components/_catalog.scss */
+/* line 85, src/sass/components/_catalog.scss */
 .catalog .catalog__table-cell--padding {
   padding-top: 0;
 }
 
-/* line 76, src/sass/components/_catalog.scss */
+/* line 89, src/sass/components/_catalog.scss */
 .catalog .catalog__table-cell + .catalog__table-cell {
   padding-left: 16px;
 }
 
-/* line 81, src/sass/components/_catalog.scss */
+/* line 94, src/sass/components/_catalog.scss */
 .catalog .catalog__table-cell--font {
   font-weight: 600;
 }
 
-/* line 85, src/sass/components/_catalog.scss */
+/* line 98, src/sass/components/_catalog.scss */
 .catalog .catalog__table-line + .catalog__table-line {
   border-top: 2px solid #21212133;
 }
 
-/* line 89, src/sass/components/_catalog.scss */
+/* line 102, src/sass/components/_catalog.scss */
 .catalog .catalog__item--reverse-color {
   background: #212121;
   color: #ffffff;
@@ -311,167 +267,244 @@
   padding-bottom: 16px;
 }
 
-/* line 95, src/sass/components/_catalog.scss */
+/* line 108, src/sass/components/_catalog.scss */
 .catalog .catalog__item--reverse-color .catalog__table-line + .catalog__table-line {
   border-top: 2px solid #d2d2d233;
 }
 
-/* line 99, src/sass/components/_catalog.scss */
+/* line 112, src/sass/components/_catalog.scss */
 .catalog .catalog__item--reverse-color .slick-dots li button:before {
   color: white;
 }
 
-/* line 104, src/sass/components/_catalog.scss */
+/* line 117, src/sass/components/_catalog.scss */
 .catalog .slick-prev {
   left: 10px;
   z-index: 1;
 }
 
-/* line 109, src/sass/components/_catalog.scss */
+/* line 122, src/sass/components/_catalog.scss */
 .catalog .slick-next {
   right: 10px;
 }
 
-/* line 113, src/sass/components/_catalog.scss */
+/* line 126, src/sass/components/_catalog.scss */
 .catalog .slick-prev:before, .catalog .slick-next:before {
   opacity: .75;
   color: #212121;
 }
 
 @media (min-width: 375px) {
-  /* line 120, src/sass/components/_catalog.scss */
-  .catalog__tabs-list {
+  /* line 133, src/sass/components/_catalog.scss */
+  .catalog__tabs {
     font-size: 22px;
-  }
-  /* line 124, src/sass/components/_catalog.scss */
-  .catalog__tabs-item + .catalog__tabs-item {
-    margin-left: 24px;
   }
 }
 
 @media (min-width: 720px) {
-  /* line 132, src/sass/components/_catalog.scss */
+  /* line 145, src/sass/components/_catalog.scss */
   .catalog .catalog__item .container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  /* line 137, src/sass/components/_catalog.scss */
+  /* line 150, src/sass/components/_catalog.scss */
   .catalog .catalog__item-pictures {
     width: 50%;
     margin-bottom: 0;
   }
-  /* line 142, src/sass/components/_catalog.scss */
+  /* line 155, src/sass/components/_catalog.scss */
   .catalog .catalog__item-description {
     margin-left: 16px;
   }
-  /* line 147, src/sass/components/_catalog.scss */
+  /* line 160, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
-  /* line 151, src/sass/components/_catalog.scss */
+  /* line 164, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-pictures {
     margin-left: 16px;
   }
-  /* line 155, src/sass/components/_catalog.scss */
+  /* line 168, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-description {
     margin-left: 0;
   }
-  /* line 160, src/sass/components/_catalog.scss */
+  /* line 173, src/sass/components/_catalog.scss */
   .catalog .catalog__table {
     font-size: 16px;
   }
-  /* line 164, src/sass/components/_catalog.scss */
+  /* line 177, src/sass/components/_catalog.scss */
   .catalog .slick-dots {
     bottom: 9px;
   }
-  /* line 167, src/sass/components/_catalog.scss */
+  /* line 180, src/sass/components/_catalog.scss */
   .catalog .slick-dots li button:before {
     color: black;
   }
-  /* line 174, src/sass/components/_catalog.scss */
+  /* line 187, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .slick-dots li button:before {
     color: black;
   }
 }
 
 @media (min-width: 960px) {
-  /* line 184, src/sass/components/_catalog.scss */
-  .catalog .catalog__tabs-list {
+  /* line 197, src/sass/components/_catalog.scss */
+  .catalog .catalog__tabs {
     margin: 36px 0 0;
     font-size: 24px;
   }
-  /* line 189, src/sass/components/_catalog.scss */
+  /* line 202, src/sass/components/_catalog.scss */
   .catalog .catalog__tabs-content {
     margin-top: 50px;
   }
-  /* line 193, src/sass/components/_catalog.scss */
-  .catalog .catalog__tabs-item + .catalog__tabs-item {
-    margin-left: 24px;
-  }
-  /* line 198, src/sass/components/_catalog.scss */
-  .catalog .catalog__tabs-item:before {
-    bottom: -14px;
-  }
-  /* line 203, src/sass/components/_catalog.scss */
+  /* line 216, src/sass/components/_catalog.scss */
   .catalog .catalog__item-description {
     margin-left: 24px;
   }
-  /* line 207, src/sass/components/_catalog.scss */
+  /* line 220, src/sass/components/_catalog.scss */
   .catalog .catalog__table {
     font-size: 22px;
   }
-  /* line 211, src/sass/components/_catalog.scss */
+  /* line 224, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell {
     padding: 13px 0;
   }
-  /* line 215, src/sass/components/_catalog.scss */
+  /* line 228, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell--padding {
     padding-top: 0;
   }
-  /* line 220, src/sass/components/_catalog.scss */
+  /* line 233, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-pictures {
     margin-left: 24px;
   }
 }
 
 @media (min-width: 1150px) {
-  /* line 229, src/sass/components/_catalog.scss */
-  .catalog .catalog__tabs-list {
+  /* line 242, src/sass/components/_catalog.scss */
+  .catalog .catalog__tabs {
     font-size: 30px;
   }
-  /* line 233, src/sass/components/_catalog.scss */
-  .catalog .catalog__tabs-item + .catalog__tabs-item {
-    margin-left: 34px;
-  }
-  /* line 237, src/sass/components/_catalog.scss */
+  /* line 250, src/sass/components/_catalog.scss */
   .catalog .catalog__table {
     font-size: 24px;
   }
-  /* line 241, src/sass/components/_catalog.scss */
+  /* line 254, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell {
     padding: 17px 0;
   }
-  /* line 245, src/sass/components/_catalog.scss */
+  /* line 258, src/sass/components/_catalog.scss */
   .catalog .catalog__table-cell--padding {
     padding-top: 0;
   }
-  /* line 249, src/sass/components/_catalog.scss */
+  /* line 262, src/sass/components/_catalog.scss */
   .catalog .catalog__item-description {
     margin-left: 34px;
   }
-  /* line 254, src/sass/components/_catalog.scss */
+  /* line 267, src/sass/components/_catalog.scss */
   .catalog .catalog__item--reverse .catalog__item-pictures {
     margin-left: 34px;
   }
 }
 
+/* line 1, src/sass/components/_tabs.scss */
+.tabs__btn + .tabs__btn {
+  margin-left: 18px;
+}
+
+/* line 5, src/sass/components/_tabs.scss */
+.tabs__btn {
+  position: relative;
+  opacity: .5;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* line 13, src/sass/components/_tabs.scss */
+.tabs__btn:before {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  border-radius: 4px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  border: 0 solid #212121;
+  opacity: .75;
+}
+
+/* line 25, src/sass/components/_tabs.scss */
+.tabs__btn:hover {
+  opacity: 1;
+}
+
+/* line 28, src/sass/components/_tabs.scss */
+.tabs__btn:hover:before {
+  border-width: 4px;
+  opacity: .75;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+/* line 35, src/sass/components/_tabs.scss */
+.tabs__btn--active {
+  opacity: 1;
+}
+
+/* line 38, src/sass/components/_tabs.scss */
+.tabs__btn--active:before {
+  width: 95%;
+  border-width: 4px;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+@media (min-width: 375px) {
+  /* line 47, src/sass/components/_tabs.scss */
+  .tabs__btn + .tabs__btn {
+    margin-left: 24px;
+  }
+}
+
+@media (min-width: 960px) {
+  /* line 53, src/sass/components/_tabs.scss */
+  .tabs__btn + .tabs__btn {
+    margin-left: 24px;
+  }
+  /* line 58, src/sass/components/_tabs.scss */
+  .tabs__btn:before {
+    bottom: -14px;
+  }
+}
+
+@media (min-width: 1150px) {
+  /* line 65, src/sass/components/_tabs.scss */
+  .tabs__btn + .tabs__btn {
+    margin-left: 34px;
+  }
+}
+
+/* line 1, src/sass/components/_visually-hidden.scss */
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+}
+
 /* line 1, src/sass/components/_feedback.scss */
 .feedback {
-  margin-top: 24px;
+  padding-top: 24px;
 }
 
 /* line 4, src/sass/components/_feedback.scss */
@@ -483,7 +516,7 @@
 
 /* line 10, src/sass/components/_feedback.scss */
 .feedback .feedback__form {
-  margin-top: 24px;
+  padding-top: 24px;
 }
 
 /* line 1, src/sass/components/_form.scss */

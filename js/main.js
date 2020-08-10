@@ -1,360 +1,494 @@
 /*! Movavi v0.0.1 | (c) 2020 Kirill Potekhin | MIT License | http://link-to-your-git-repo.com */
-"use strict"; //forEach в ie11
+"use strict";
 
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+var feedbackBtn = document.querySelector(".main-nav__feedback");
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+var scrollToFeedback = function scrollToFeedback() {
+  var feedbackOffsetHeight = document.querySelector(".feedback");
+  feedbackOffsetHeight.scrollIntoView({
+    block: "start",
+    behavior: "smooth"
+  });
+};
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+feedbackBtn.addEventListener('click', scrollToFeedback);
+var pageHeader = document.querySelector(".page-header");
+var pageHeaderHeight = pageHeader.offsetHeight;
+window.addEventListener("scroll", (function () {
+  var feedbackOffsetHeight = document.querySelector(".feedback").offsetTop;
 
-if ('NodeList' in window && !NodeList.prototype.forEach) {
-  console.info('polyfill for IE11');
+  if (window.scrollY >= feedbackOffsetHeight - pageHeaderHeight) {
+    pageHeader.classList.add("visually-hidden");
+    return;
+  }
 
-  NodeList.prototype.forEach = function (callback, thisArg) {
-    thisArg = thisArg || window;
-
-    for (var i = 0; i < this.length; i++) {
-      callback.call(thisArg, this[i], i, this);
-    }
-  };
-} //.remove() ie11
-
-
-if (!('remove' in Element.prototype)) {
-  Element.prototype.remove = function () {
-    if (this.parentNode) {
-      this.parentNode.removeChild(this);
-    }
-  };
-} //Array.from ie11
-
-
-if (!Array.from) {
-  Array.from = (function () {
-    var toStr = Object.prototype.toString;
-
-    var isCallable = function isCallable(fn) {
-      return typeof fn === 'function' || toStr.call(fn) === '[object Function]';
-    };
-
-    var toInteger = function toInteger(value) {
-      var number = Number(value);
-
-      if (isNaN(number)) {
-        return 0;
-      }
-
-      if (number === 0 || !isFinite(number)) {
-        return number;
-      }
-
-      return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
-    };
-
-    var maxSafeInteger = Math.pow(2, 53) - 1;
-
-    var toLength = function toLength(value) {
-      var len = toInteger(value);
-      return Math.min(Math.max(len, 0), maxSafeInteger);
-    }; // The length property of the from method is 1.
-
-
-    return function from(arrayLike
-    /*, mapFn, thisArg */
-    ) {
-      // 1. Let C be the this value.
-      var C = this; // 2. Let items be ToObject(arrayLike).
-
-      var items = Object(arrayLike); // 3. ReturnIfAbrupt(items).
-
-      if (arrayLike == null) {
-        throw new TypeError("Array.from requires an array-like object - not null or undefined");
-      } // 4. If mapfn is undefined, then let mapping be false.
-
-
-      var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
-      var T;
-
-      if (typeof mapFn !== 'undefined') {
-        // 5. else
-        // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
-        if (!isCallable(mapFn)) {
-          throw new TypeError('Array.from: when provided, the second argument must be a function');
-        } // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
-
-
-        if (arguments.length > 2) {
-          T = arguments[2];
-        }
-      } // 10. Let lenValue be Get(items, "length").
-      // 11. Let len be ToLength(lenValue).
-
-
-      var len = toLength(items.length); // 13. If IsConstructor(C) is true, then
-      // 13. a. Let A be the result of calling the [[Construct]] internal method of C with an argument list containing the single item len.
-      // 14. a. Else, Let A be ArrayCreate(len).
-
-      var A = isCallable(C) ? Object(new C(len)) : new Array(len); // 16. Let k be 0.
-
-      var k = 0; // 17. Repeat, while k < len… (also steps a - h)
-
-      var kValue;
-
-      while (k < len) {
-        kValue = items[k];
-
-        if (mapFn) {
-          A[k] = typeof T === 'undefined' ? mapFn(kValue, k) : mapFn.call(T, kValue, k);
-        } else {
-          A[k] = kValue;
-        }
-
-        k += 1;
-      } // 18. Let putStatus be Put(A, "length", len, true).
-
-
-      A.length = len; // 20. Return A.
-
-      return A;
-    };
-  })();
-}
-
-var basketLink = document.querySelector(".basket__link");
-var modal = document.querySelectorAll(".modal");
-var modalBasket = document.querySelector(".modal--basket");
-var modalAlarm = document.querySelector(".modal--alarm");
-var modalBasketClose = modalBasket.querySelector(".basket-modal__exit");
-var modalAlarmClose = modalAlarm.querySelector(".alarm-modal__exit");
-var modalOverlay = document.querySelector(".overlay");
-var deleteTotalButton = modalBasket.querySelector(".basket-modal__total-delete");
-var productWrapper = modalBasket.querySelector(".basket-modal__products");
-var orderButton = document.querySelectorAll(".product-card__order"); // localStorage.clear();
-
-var basketProducts = !!localStorage.getItem("basketProduct") ? JSON.parse(localStorage.getItem("basketProduct")).filter((function (it) {
-  return it;
-})) : [{
-  title: "ALCHEMY OF CRYSTALS STICKER PACK",
-  priceOld: 99,
-  priceClick: 99,
-  id: 0,
-  img: "img/product.png"
+  pageHeader.classList.remove("visually-hidden");
+}));
+var Specification = {
+  seasonFall: "fall",
+  seasonWinter: "winter",
+  seasonSummer: "summer",
+  typeHat: "\u0428\u0430\u043F\u043A\u0430",
+  typeBandage: "\u041F\u043E\u0432\u044F\u0437\u043A\u0430",
+  typeSnood: "\u0421\u043D\u0443\u0434",
+  typeScarf: "\u0428\u0430\u0440\u0444",
+  typeKlondike: "\u041A\u043E\u0441\u044B\u043D\u043A\u0430",
+  typeBandana: "\u0411\u0430\u043D\u0434\u0430\u043D\u0430",
+  typePanama: "\u041F\u0430\u043D\u0430\u043C\u0430",
+  typeRubber: "\u0420\u0435\u0437\u0438\u043D\u043A\u0430-\u043F\u043B\u0430\u0442\u043E\u043A",
+  typeSolokha: "\u0421\u043E\u043B\u043E\u0445\u0430",
+  modelAlfa: "\u0410\u043B\u044C\u0444\u0430",
+  modelApolon: "\u0410\u043F\u043E\u043B\u043E\u043D",
+  modelBerlin: "\u0411\u0435\u0440\u043B\u0438\u043D",
+  modelValencia: "\u0412\u0430\u043B\u0435\u043D\u0441\u0438\u044F",
+  modelVenera: "\u0412\u0435\u043D\u0435\u0440\u0430",
+  modelGera: "\u0413\u0435\u0440\u0430",
+  modelZevs: "\u0417\u0435\u0432\u0441",
+  modelKapella: "\u041A\u0430\u043F\u0435\u043B\u043B\u0430",
+  modelLapland: "\u041B\u0430\u043F\u043B\u0430\u043D\u0434\u0438\u044F",
+  modelLondon: "\u041B\u043E\u043D\u0434\u043E\u043D",
+  modelMiami: "\u041C\u0430\u0439\u0430\u043C\u0438",
+  modelMars: "\u041C\u0430\u0440\u0441",
+  modelNika: "\u041D\u0438\u043A\u0430",
+  modelOlimpia: "\u041E\u043B\u0438\u043C\u043F\u0438\u044F",
+  modelOlimpia2side: "\u041E\u043B\u0438\u043C\u043F\u0438\u044F 2\u0445 \u0441\u0442\u043E\u0440\u043E\u043D\u043D\u044F\u044F",
+  modelOlimpia2sideiy: "\u041E\u043B\u0438\u043C\u043F\u0438\u044F 2\u0445 \u0441\u0442\u043E\u0440\u043E\u043D\u043D\u0438\u0439",
+  modelOrion: "\u041E\u0440\u0438\u043E\u043D",
+  modelSafari: "\u0421\u0430\u0444\u0430\u0440\u0438",
+  modelSelena: "\u0421\u0435\u043B\u0435\u043D\u0430",
+  modelSirius: "\u0421\u0438\u0440\u0438\u0443\u0441",
+  size3840: "38-40",
+  size4046: "40-46",
+  size4244: "42-44",
+  size4246: "42-46",
+  size4448: "44-48",
+  size4648: "46-48",
+  size4850: "48-50",
+  size4852: "48-52",
+  size4854: "48-54",
+  size5052: "50-52",
+  size5053: "50-53",
+  size5254: "52-54",
+  size5258: "52-58",
+  size5458: "54-58",
+  size5658: "56-58",
+  sizeM: "M",
+  sizeS: "S",
+  composition100a: "100% \u0430\u043A\u0440\u0438\u043B",
+  composition100h: "100% \u0445\u043B\u043E\u043F\u043E\u043A",
+  composition30w70a: "30% \u0448\u0435\u0440\u0441\u0442\u044C, 70% \u0430\u043A\u0440\u0438\u043B",
+  composition50w50a: "50% \u0448\u0435\u0440\u0441\u0442\u044C, 50% \u0430\u043A\u0440\u0438\u043B",
+  composition60pe35v5s: "60% \u043F\u043E\u043B\u0438\u044D\u0441\u0442\u0435\u0440, 35% \u0432\u0438\u0441\u043A\u043E\u0437\u0430, 5% \u0441\u043F\u0430\u043D\u0434\u0435\u043A\u0441",
+  composition92pe8n: "92% \u043F\u043E\u043B\u0438\u044D\u0441\u0442\u0435\u0440, 8% \u043D\u0435\u0439\u043B\u043E\u043D",
+  composition95pe5e: "95% \u043F\u043E\u043B\u0438\u044D\u0441\u0442\u0435\u0440, 5% \u044D\u043B\u0430\u0441\u0442\u0430\u043D",
+  composition95h5e: "95% \u0445\u043B\u043E\u043F\u043E\u043A, 5% \u044D\u043B\u0430\u0441\u0442\u0430\u043D",
+  composition96pe4e: "96% \u043F\u043E\u043B\u0438\u044D\u0441\u0442\u0435\u0440, 4% \u044D\u043B\u0430\u0441\u0442\u0430\u043D",
+  composition97h3e: "97% \u0445\u043B\u043E\u043F\u043E\u043A, 3% \u044D\u043B\u0430\u0441\u0442\u0430\u043D"
+};
+var products = [{
+  season: Specification.seasonFall,
+  model: Specification.modelOlimpia,
+  type: Specification.typeHat,
+  sizeSmall: "".concat(Specification.size4850, " / ").concat(Specification.size5052),
+  sizeHigh: "".concat(Specification.size5254, " / ").concat(Specification.size5658),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: 600,
+  priceHigh: 700
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelOlimpia,
+  type: Specification.typeBandage,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeS, " / ").concat(Specification.sizeM),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 400
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelOlimpia,
+  type: Specification.typeSnood,
+  sizeSmall: "".concat(Specification.sizeS),
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: 600,
+  priceHigh: 700
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelOlimpia2side,
+  type: Specification.typeHat,
+  sizeSmall: "".concat(Specification.size4850),
+  sizeHigh: "".concat(Specification.size5254, " / ").concat(Specification.size5658),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: 650,
+  priceHigh: 750
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelOlimpia2sideiy,
+  type: Specification.typeSnood,
+  sizeSmall: "".concat(Specification.sizeS),
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: 650,
+  priceHigh: 750
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelOrion,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size5254, " / ").concat(Specification.size5658),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: 600,
+  priceHigh: 700
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelOrion,
+  type: Specification.typeSnood,
+  sizeSmall: "".concat(Specification.sizeS),
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: 600,
+  priceHigh: 700
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelZevs,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeS, " / ").concat(Specification.sizeM),
+  composition: Specification.composition30w70a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 900
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelZevs,
+  type: Specification.typeSnood,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition30w70a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 900
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelKapella,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeS, " / ").concat(Specification.sizeM),
+  composition: Specification.composition30w70a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 900
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelKapella,
+  type: Specification.typeScarf,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition30w70a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 900
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelGera,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition100a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 800
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelGera,
+  type: Specification.typeSnood,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition100a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 800
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelNika,
+  type: Specification.typeBandage,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition96pe4e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 580
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelSelena,
+  type: Specification.typeBandage,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition92pe8n,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 500
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelAlfa,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size5258),
+  composition: Specification.composition60pe35v5s,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 900
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelAlfa,
+  type: Specification.typeBandage,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition60pe35v5s,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 550
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelAlfa,
+  type: Specification.typeSnood,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition60pe35v5s,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 1000
+}, {
+  season: Specification.seasonFall,
+  model: Specification.modelMars,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size4448, " / ").concat(Specification.size5052),
+  composition: Specification.composition95h5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 600
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelSafari,
+  type: Specification.typePanama,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size4648, " / ").concat(Specification.size5052, " / ").concat(Specification.size5458),
+  composition: Specification.composition97h3e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 750
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelSafari,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size4850, " / ").concat(Specification.size5254),
+  composition: Specification.composition100h,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 500
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelMiami,
+  type: Specification.typeBandage,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size5458),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 700
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelMiami,
+  type: Specification.typeRubber,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition95pe5e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 600
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelSafari,
+  type: Specification.typeKlondike,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size4246, " / ").concat(Specification.size4852, " / ").concat(Specification.size5458),
+  composition: Specification.composition100h,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 400
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelSafari,
+  type: Specification.typeBandage,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size4850, " / ").concat(Specification.size5254, " / ").concat(Specification.size5658),
+  composition: Specification.composition100h,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 400
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelSafari,
+  type: Specification.typeSolokha,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition97h3e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 400
+}, {
+  season: Specification.seasonSummer,
+  model: Specification.modelSafari,
+  type: Specification.typeBandana,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.size4854),
+  composition: Specification.composition97h3e,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 450
+}, {
+  season: Specification.seasonWinter,
+  model: Specification.modelLondon,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition50w50a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 1400
+}, {
+  season: Specification.seasonWinter,
+  model: Specification.modelLondon,
+  type: Specification.typeSnood,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition50w50a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 1900
+}, {
+  season: Specification.seasonWinter,
+  model: Specification.modelValencia,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition50w50a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 1700
+}, {
+  season: Specification.seasonWinter,
+  model: Specification.modelLapland,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition50w50a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 1600
+}, {
+  season: Specification.seasonWinter,
+  model: Specification.modelBerlin,
+  type: Specification.typeHat,
+  sizeSmall: "",
+  sizeHigh: "".concat(Specification.sizeM),
+  composition: Specification.composition50w50a,
+  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  priceSmall: "",
+  priceHigh: 1200
 }];
 
-var renderProduct = function renderProduct() {
-  var productAll = productWrapper.querySelectorAll(".basket-modal__product");
-  productAll.forEach((function (it) {
-    it.remove();
+var randomInteger = function randomInteger(min, max) {
+  var rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+};
+
+var createElements = function createElements(container, products) {
+  var content = document.createElement('div');
+  products.forEach((function (product, index) {
+    var template = "<article class=\"catalog__item ".concat(index % 2 !== 0 ? "catalog__item--reverse catalog__item--reverse-color" : "", "\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"catalog__item-pictures\">\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide").concat(randomInteger(1, 3), ".jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide2.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide3.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"catalog__item-description\">\n\t\t\t\t\t<table class=\"catalog__table\">\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u041C\u043E\u0434\u0435\u043B\u044C:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.model, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0422\u0438\u043F:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.type, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u0430\u0437\u043C\u0435\u0440:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.sizeSmall !== "" ? "".concat(product.sizeSmall, " / ").concat(product.sizeHigh) : "".concat(product.sizeHigh), "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0421\u043E\u0441\u0442\u0430\u0432:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.composition, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0426\u0432\u0435\u0442:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.color, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u043E\u0437\u043D\u0438\u0447\u043D\u0430\u044F \u0446\u0435\u043D\u0430:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">\n\t\t\t\t\t\t\t\t<table>\n                  <tr class=\"catalog__table-line\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell catalog__table-cell--padding\">".concat(product.sizeSmall, "</td>") : "", "\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--padding\">").concat(product.sizeHigh, "</td>\n\t\t\t\t\t\t\t\t\t</tr>\n                  <tr class=\"catalog__table-line\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell\">".concat(product.priceSmall, "\u0420</td>") : "", "\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.priceHigh, "\u0420</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n    </article>");
+    console.log("template", template); // console.log(`markup`, template);
+
+    content.insertAdjacentHTML("beforeend", template); // console.log(`markup`, content);
   }));
-
-  var _iterator = _createForOfIteratorHelper(basketProducts),
-      _step;
-
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var basketProduct = _step.value;
-      var priceValue = !!localStorage.getItem("isStock") ? basketProduct.priceOld : basketProduct.priceClick;
-      productWrapper.insertAdjacentHTML('beforeEnd', createProduct(basketProduct.title, priceValue, basketProduct.id, basketProduct.img));
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-
-  onCalculateTotalPrice();
+  container.append(content); //  console.log(`markup`, container);
+  //  console.log(`xnjjd`, content);
+  // return content;
 };
 
-var createProduct = function createProduct(titleCard, priceValue, id, img) {
-  return "<div class=\"basket-modal__product\">\n    <img class=\"basket-modal__product-image\" src=\"".concat(img, "\" width=\"134\" height=\"75\" alt=\"product\">\n    <div class=\"basket-modal__product-description\">\n      <p class=\"basket-modal__product-title\">").concat(titleCard, "</p>\n      <div class=\"basket-modal__description-wrapper\">\n        <div class=\"basket-modal__price\">\n          <span class=\"basket-modal__price-value\">").concat(priceValue, ".0</span>\n          <span class=\"basket-modal__price-currency\">\u0440\u0443\u0431.</span>\n        </div>\n        <a class=\"basket-modal__delete\" href=\"#\" data-id=\"").concat(id, "\">\n          <span class=\"basket-modal__delete-item\">Delete</span>\n        </a>\n      </div>\n    </div>\n  </div>");
-};
+var productsSeasons = [];
+var productsSeasonFall = products.slice().filter((function (it) {
+  return it.season === "fall";
+}));
+var productsSeasonWinter = products.slice().filter((function (it) {
+  return it.season === "winter";
+}));
+var productsSeasonSummer = products.slice().filter((function (it) {
+  return it.season === "summer";
+}));
+productsSeasons.push(productsSeasonFall);
+productsSeasons.push(productsSeasonWinter);
+productsSeasons.push(productsSeasonSummer); // console.log(`fall`, productsSeasonFall);
+// console.log(`summer`, productsSeasonSummer);
+// console.log(`winter`, productsSeasonWinter);
+// console.log(productsSeasons);
+// console.log(createElements(productsSeasons[1]));
 
-var getOrderButtom = function getOrderButtom() {
-  return orderButton.forEach((function (it, i) {
-    var render = function render() {
-      var titleCard = Array.from(document.querySelectorAll(".product-card__title"))[i].textContent;
-      var price = Array.from(document.querySelectorAll(".product-card__price--actual .product-card__price-value"))[i].textContent;
-      var priceOld = Array.from(document.querySelectorAll(".product-card__price--old .product-card__price-value"))[i].textContent;
-      var priceValue = !!localStorage.getItem("isStock") ? priceOld : price;
-      var src = "http://picsum.photos/300/150?r=".concat(Math.random());
-
-      if (basketProducts.some((function (product) {
-        return product.title === titleCard;
-      }))) {
-        alert("\u0422\u0430\u043A\u043E\u0439 \u0442\u043E\u0432\u0430\u0440 \u0443\u0436\u0435 \u0432\u044B\u0431\u0440\u0430\u043D");
-      } else {
-        basketProducts.push({
-          title: titleCard,
-          priceOld: priceOld,
-          priceClick: price,
-          id: basketProducts.length,
-          img: src
-        });
-        productWrapper.insertAdjacentHTML('beforeEnd', createProduct(titleCard, priceValue, i, src));
-      }
-    };
-
-    var action = function action() {
-      render();
-      onCalculateTotalPrice();
-      onRecordLocalStorageArray();
-    };
-
-    it.addEventListener("click", action);
-  }));
-}; //Modal
-
-
-var onKeyEscDown = function onKeyEscDown(evt) {
-  if (evt.key === "Escape" || evt.key === "Esc") {
-    onCloseModal();
-  }
-};
-
-var onClickOverlayCloseModal = function onClickOverlayCloseModal(evt) {
-  if (evt.target == modalOverlay) {
-    onCloseModal();
-  }
-};
-
-var onOpenModal = function onOpenModal(modal) {
-  return function (evt) {
-    onCloseModal();
-    modal.style.display = "block";
-    modalOverlay.style.display = "block";
-    document.addEventListener("keydown", onKeyEscDown);
-    document.addEventListener("click", onClickOverlayCloseModal);
-
-    if (modal == modalBasket) {
-      evt.preventDefault();
-      onClickDeleteProduct();
-      onClickDeleteAllProduct();
-      console.log(basketProducts);
-    }
-  };
-};
-
-var onCloseModal = function onCloseModal() {
-  modalAlarm.style.display = "none";
-  modalBasket.style.display = "none";
-  modalOverlay.style.display = "none";
-  document.removeEventListener("keydown", onKeyEscDown);
-  document.removeEventListener("click", onClickOverlayCloseModal);
-};
-
-var onClickButtonCloseModal = function onClickButtonCloseModal(evt) {
-  evt.preventDefault();
-  onCloseModal();
-}; //Корзина Modal
-
-
-basketLink.addEventListener("click", onOpenModal(modalBasket));
-modalBasketClose.addEventListener("click", onClickButtonCloseModal); //Окончание акции Modal
-
-modalAlarmClose.addEventListener("click", onClickButtonCloseModal); //Записываю массив с продуктами в localstorage
-
-var onRecordLocalStorageArray = function onRecordLocalStorageArray() {
-  localStorage.removeItem("basketProduct");
-  localStorage.setItem("basketProduct", JSON.stringify(basketProducts));
-}; //Считает итоговую цену
-
-
-var onCalculateTotalPrice = function onCalculateTotalPrice() {
-  var price = productWrapper.querySelectorAll(".basket-modal__price-value");
-  var total = Array.from(price);
-  var prices = [];
-
-  for (var i = 0; i < total.length; i++) {
-    prices.push(Number(total[i].textContent.replace(/ /g, "")));
-  }
-
-  var totalPrice = prices.length ? prices.reduce((function (arr, atr) {
-    return arr + atr;
-  })) : 0;
-  document.querySelector(".basket-modal__total-value").textContent = "".concat(totalPrice, ".0");
-  document.querySelector(".basket__price-value").textContent = "".concat(totalPrice, ".0");
-}; //Функция удаления товара из корзины
-
-
-var onClickDeleteProduct = function onClickDeleteProduct() {
-  var productAll = productWrapper.querySelectorAll(".basket-modal__product");
-  var deleteButton = modalBasket.querySelectorAll(".basket-modal__delete");
-  deleteButton.forEach((function (it, i) {
-    it.addEventListener("click", (function (evt) {
-      evt.preventDefault();
-      productAll[i].remove();
-      basketProducts = basketProducts.filter((function (product) {
-        return product.id.toString() !== it.dataset.id;
-      }));
-      onRecordLocalStorageArray();
-      onCalculateTotalPrice();
-    }));
-  }));
-}; //Функция удаления всех товаров из корзины
-
-
-var onClickDeleteAllProduct = function onClickDeleteAllProduct() {
-  var productAll = productWrapper.querySelectorAll(".basket-modal__product");
-  deleteTotalButton.addEventListener("click", (function (evt) {
+var tabs = document.querySelector(".tabs");
+var tabsButtons = tabs.querySelectorAll(".tabs__btn");
+var tabsContents = document.querySelectorAll(".catalog__tabs-content");
+Array.from(tabsContents).forEach((function (tabContent, index) {
+  return createElements(tabContent, productsSeasons[index]);
+}));
+tabsButtons.forEach((function (it, i) {
+  it.addEventListener("click", (function (evt) {
     evt.preventDefault();
-    productAll.forEach((function (it) {
-      it.remove();
-      onCalculateTotalPrice();
-    }));
-    basketProducts.splice(0, basketProducts.length);
-    onRecordLocalStorageArray();
-  }));
-}; //Timer
 
-
-var alarmInfo = document.querySelector(".product-card__alarm-info");
-var timerTime = 15 * 60;
-var lsKey = "timerEnd";
-var savedTime = parseInt(localStorage.getItem(lsKey));
-
-var castTimeFormat = function castTimeFormat(value) {
-  return value < 10 ? "0".concat(value) : "".concat(value);
-};
-
-var timerStart = function timerStart(finishDate) {
-  localStorage.setItem(lsKey, finishDate.getTime());
-  var timerId = setInterval((function () {
-    var seconds = parseInt((finishDate - new Date()) / 1000);
-    var alarmMinute = parseInt((finishDate - new Date()) / 1000 / 60);
-    var alarmSecond = parseInt((finishDate - new Date() - alarmMinute * 1000 * 60) / 1000);
-    alarmInfo.textContent = "Offer valid ".concat(castTimeFormat(alarmMinute), " : ").concat(castTimeFormat(alarmSecond));
-
-    if (seconds <= 0) {
-      clearInterval(timerId);
-      onOpenModal(modalAlarm)();
-      discountNo();
-      localStorage.setItem("isStock", "false");
-      renderProduct();
+    if (it.classList.contains("tabs__btn--active")) {
+      return;
     }
-  }), 100);
-};
 
-window.onload = function () {
-  var date = new Date(); //Чтобы таймер больше не запускался
-
-  savedTime ? date.setTime(savedTime) : date.setTime(date.getTime() + 1000 * timerTime);
-  !!localStorage.getItem("isStock") ? discountNo() : timerStart(date); //Вставляет товары в корзину
-
-  renderProduct();
-  onCalculateTotalPrice();
-  getOrderButtom();
-}; //Функция, которая при окончании таймера удаляет его из карточки, скрывает акционную цену и делает выравнивание 
-
-
-var discountNo = function discountNo() {
-  var actualPrice = document.querySelectorAll(".product-card__price");
-
-  if (!!document.querySelector(".product-card__alarm")) {
-    document.querySelector(".product-card__alarm").remove();
-    document.querySelector(".product-card__wrapper-detail").style.justifyContent = "flex-end";
-    actualPrice.forEach((function (it) {
-      it.classList.toggle("product-card__price--actual");
-      !it.classList.contains("product-card__price--actual") ? it.remove() : "";
+    it.classList.add("tabs__btn--active");
+    var itemNotActive = Array.from(tabsButtons).filter((function (tab) {
+      return tab.id !== evt.target.id;
     }));
-  }
-};
+    itemNotActive.forEach((function (it) {
+      if (it.classList.contains("tabs__btn--active")) {
+        it.classList.remove("tabs__btn--active");
+      }
+    }));
+    Array.from(tabsContents).forEach((function (it, index) {
+      if (i !== index & !it.classList.contains("visually-hidden")) {
+        it.classList.add("visually-hidden");
+      }
+
+      if (i === index & it.classList.contains("visually-hidden")) {
+        it.classList.remove("visually-hidden");
+        var catalogItemPictures = it.querySelectorAll(".catalog__item-pictures");
+        Array.from(catalogItemPictures).forEach((function (item) {
+          var tabImg = item.querySelector(".catalog__item-img");
+          var widthSlickContainer = item.querySelector(".slick-list").offsetWidth;
+          tabImg.style.width = "".concat(widthSlickContainer, "px");
+          tabImg.style.height = "auto";
+          var marginReset = item.querySelector(".slick-track");
+          marginReset.style.margin = 0;
+        }));
+      }
+    }));
+  }));
+}));
+window.addEventListener("resize", (function () {
+  var tabImgs = document.querySelectorAll(".catalog__item-img");
+  tabImgs.forEach((function (it) {
+    return it.style.width = "100%";
+  }));
+}));
