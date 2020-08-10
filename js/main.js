@@ -92,7 +92,7 @@ var products = [{
   sizeSmall: "".concat(Specification.size4850, " / ").concat(Specification.size5052),
   sizeHigh: "".concat(Specification.size5254, " / ").concat(Specification.size5658),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: 600,
   priceHigh: 700
 }, {
@@ -102,7 +102,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeS, " / ").concat(Specification.sizeM),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 400
 }, {
@@ -112,7 +112,7 @@ var products = [{
   sizeSmall: "".concat(Specification.sizeS),
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: 600,
   priceHigh: 700
 }, {
@@ -122,7 +122,7 @@ var products = [{
   sizeSmall: "".concat(Specification.size4850),
   sizeHigh: "".concat(Specification.size5254, " / ").concat(Specification.size5658),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: 650,
   priceHigh: 750
 }, {
@@ -132,7 +132,7 @@ var products = [{
   sizeSmall: "".concat(Specification.sizeS),
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: 650,
   priceHigh: 750
 }, {
@@ -142,7 +142,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size5254, " / ").concat(Specification.size5658),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: 600,
   priceHigh: 700
 }, {
@@ -152,7 +152,7 @@ var products = [{
   sizeSmall: "".concat(Specification.sizeS),
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: 600,
   priceHigh: 700
 }, {
@@ -162,7 +162,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeS, " / ").concat(Specification.sizeM),
   composition: Specification.composition30w70a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 900
 }, {
@@ -172,7 +172,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition30w70a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 900
 }, {
@@ -182,7 +182,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeS, " / ").concat(Specification.sizeM),
   composition: Specification.composition30w70a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 900
 }, {
@@ -192,7 +192,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition30w70a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 900
 }, {
@@ -202,7 +202,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition100a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 800
 }, {
@@ -212,7 +212,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition100a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 800
 }, {
@@ -222,7 +222,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition96pe4e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 580
 }, {
@@ -232,7 +232,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition92pe8n,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 500
 }, {
@@ -242,7 +242,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size5258),
   composition: Specification.composition60pe35v5s,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 900
 }, {
@@ -252,7 +252,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition60pe35v5s,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 550
 }, {
@@ -262,7 +262,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition60pe35v5s,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 1000
 }, {
@@ -272,7 +272,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size4448, " / ").concat(Specification.size5052),
   composition: Specification.composition95h5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 600
 }, {
@@ -282,7 +282,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size4648, " / ").concat(Specification.size5052, " / ").concat(Specification.size5458),
   composition: Specification.composition97h3e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 750
 }, {
@@ -292,7 +292,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size4850, " / ").concat(Specification.size5254),
   composition: Specification.composition100h,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 500
 }, {
@@ -302,7 +302,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size5458),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 700
 }, {
@@ -312,7 +312,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition95pe5e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 600
 }, {
@@ -322,7 +322,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size4246, " / ").concat(Specification.size4852, " / ").concat(Specification.size5458),
   composition: Specification.composition100h,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 400
 }, {
@@ -332,7 +332,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size4850, " / ").concat(Specification.size5254, " / ").concat(Specification.size5658),
   composition: Specification.composition100h,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 400
 }, {
@@ -342,7 +342,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition97h3e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 400
 }, {
@@ -352,7 +352,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.size4854),
   composition: Specification.composition97h3e,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 450
 }, {
@@ -362,7 +362,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition50w50a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 1400
 }, {
@@ -372,7 +372,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition50w50a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 1900
 }, {
@@ -382,7 +382,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition50w50a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 1700
 }, {
@@ -392,7 +392,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition50w50a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 1600
 }, {
@@ -402,7 +402,7 @@ var products = [{
   sizeSmall: "",
   sizeHigh: "".concat(Specification.sizeM),
   composition: Specification.composition50w50a,
-  color: "\u0428\u0438\u0440\u043E\u043A\u0438\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
+  color: "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0446\u0432\u0435\u0442\u043A\u0438 \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0438 \u0437\u0430\u043A\u0430\u0437\u0435",
   priceSmall: "",
   priceHigh: 1200
 }];
@@ -415,14 +415,10 @@ var randomInteger = function randomInteger(min, max) {
 var createElements = function createElements(container, products) {
   var content = document.createElement('div');
   products.forEach((function (product, index) {
-    var template = "<article class=\"catalog__item ".concat(index % 2 !== 0 ? "catalog__item--reverse catalog__item--reverse-color" : "", "\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"catalog__item-pictures\">\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide").concat(randomInteger(1, 3), ".jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide2.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide3.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"catalog__item-description\">\n\t\t\t\t\t<table class=\"catalog__table\">\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u041C\u043E\u0434\u0435\u043B\u044C:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.model, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0422\u0438\u043F:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.type, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u0430\u0437\u043C\u0435\u0440:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.sizeSmall !== "" ? "".concat(product.sizeSmall, " / ").concat(product.sizeHigh) : "".concat(product.sizeHigh), "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0421\u043E\u0441\u0442\u0430\u0432:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.composition, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0426\u0432\u0435\u0442:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.color, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u043E\u0437\u043D\u0438\u0447\u043D\u0430\u044F \u0446\u0435\u043D\u0430:</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">\n\t\t\t\t\t\t\t\t<table>\n                  <tr class=\"catalog__table-line\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell catalog__table-cell--padding\">".concat(product.sizeSmall, "</td>") : "", "\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--padding\">").concat(product.sizeHigh, "</td>\n\t\t\t\t\t\t\t\t\t</tr>\n                  <tr class=\"catalog__table-line\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell\">".concat(product.priceSmall, "\u0420</td>") : "", "\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.priceHigh, "\u0420</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n    </article>");
-    console.log("template", template); // console.log(`markup`, template);
-
-    content.insertAdjacentHTML("beforeend", template); // console.log(`markup`, content);
+    var template = "<article class=\"catalog__item ".concat(index % 2 !== 0 ? "catalog__item--reverse catalog__item--reverse-color" : "", "\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"catalog__item-pictures\">\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide").concat(randomInteger(1, 3), ".jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide2.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide3.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"catalog__item-description\">\n\t\t\t\t\t<table class=\"catalog__table\">\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u041C\u043E\u0434\u0435\u043B\u044C</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.model, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0422\u0438\u043F</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.type, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u0430\u0437\u043C\u0435\u0440</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.sizeSmall !== "" ? "".concat(product.sizeSmall, " / ").concat(product.sizeHigh) : "".concat(product.sizeHigh), "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0421\u043E\u0441\u0442\u0430\u0432</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.composition, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0426\u0432\u0435\u0442</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.color, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u043E\u0437\u043D\u0438\u0447\u043D\u0430\u044F \u0446\u0435\u043D\u0430</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">\n\t\t\t\t\t\t\t\t<table>\n                  <tr class=\"catalog__table-line catalog__table-line--price\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell catalog__table-cell--padding\">".concat(product.sizeSmall, "</td>") : "", "\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--padding\">").concat(product.sizeHigh, "</td>\n\t\t\t\t\t\t\t\t\t</tr>\n                  <tr class=\"catalog__table-line catalog__table-line--price\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell\">".concat(product.priceSmall, "\u0420</td>") : "", "\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.priceHigh, "\u0420</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n    </article>");
+    content.insertAdjacentHTML("beforeend", template);
   }));
-  container.append(content); //  console.log(`markup`, container);
-  //  console.log(`xnjjd`, content);
-  // return content;
+  container.append(content);
 };
 
 var productsSeasons = [];
@@ -437,12 +433,7 @@ var productsSeasonSummer = products.slice().filter((function (it) {
 }));
 productsSeasons.push(productsSeasonFall);
 productsSeasons.push(productsSeasonWinter);
-productsSeasons.push(productsSeasonSummer); // console.log(`fall`, productsSeasonFall);
-// console.log(`summer`, productsSeasonSummer);
-// console.log(`winter`, productsSeasonWinter);
-// console.log(productsSeasons);
-// console.log(createElements(productsSeasons[1]));
-
+productsSeasons.push(productsSeasonSummer);
 var tabs = document.querySelector(".tabs");
 var tabsButtons = tabs.querySelectorAll(".tabs__btn");
 var tabsContents = document.querySelectorAll(".catalog__tabs-content");

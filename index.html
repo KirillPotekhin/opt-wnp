@@ -503,65 +503,71 @@
 				</article> -->
 			</div>
 		</section>
-		<section class="container feedback">
-			<p class="feedback__title">Мы будем рады работать с Вами! Заполните простую форму обратной связи и мы свяжемся с
-				вами, чтобы уточнить детали.</p>
-			<form class="feedback__form form" action="" method="post">
-				<fieldset class="form__fieldset form__client">
-					<div class="form__wrapper">
-						<span class="form__legend">ФИО</span>
-						<div class="for__wrapper-mini">
-							<div class="form__name">
-								<label class="form__name-label" for="client-surname">Фамилия:</label>
-								<input class="form__name-input" name="client-surname" id="client-surname" required
-									placeholder="Укажите вашу фамилию*">
+		<section class="feedback">
+			<div class="container">
+				<p class="feedback__title">Мы будем рады работать с Вами! Заполните простую форму обратной связи и мы свяжемся с
+					вами, чтобы уточнить детали.
+				</p>
+				<div class="feedback__form-wrapper">
+					<form class="feedback__form form" action="" method="post">
+						<fieldset class="form__fieldset form__client">
+							<div class="form__wrapper">
+								<!-- <span class="form__legend">ФИО</span> -->
+								<div class="for__wrapper-mini">
+									<div class="form__name">
+										<label class="form__legend" for="client-surname">Фамилия:</label>
+										<input class="form__name-input" name="client-surname" id="client-surname" required
+											placeholder="Укажите вашу фамилию*">
+									</div>
+									<div class="form__name">
+										<label class="form__legend" for="client-name">Имя:</label>
+										<input class="form__name-input" name="client-name" id="client-name" required
+											placeholder="Введите ваше имя*">
+									</div>
+									<div class="form__name">
+										<label class="form__legend" for="client-middle-name">Отчество:</label>
+										<input class="form__name-input" name="client-middle-name" id="client-middle-name"
+											placeholder="Отчество, если желаете">
+									</div>
+								</div>
 							</div>
-							<div class="form__name">
-								<label class="form__name-label" for="client-name">Имя:</label>
-								<input class="form__name-input" name="client-name" id="client-name" required
-									placeholder="Введите ваше имя*">
+						</fieldset>
+						<fieldset class="form__fieldset form__fieldset--color form__number">
+							<div class="form__wrapper">
+								<label class="form__legend form__legend--width-number" for="client-number">Тел:</label>
+								<div class="form__wrapper-mini form__wrapper-mini--width--number">
+									<div class="form__number-wrapper">
+										<input class="form__number-input" type="tel" name="client-number" id="client-number" required
+											placeholder="+7 XXX XXX XX XX*">
+										<svg class="form__number-icon" width="25" height="24">
+											<use xlink:href="#icon-phone"></use>
+										</svg>
+									</div>
+								</div>
 							</div>
-							<div class="form__name">
-								<label class="form__name-label" for="client-middle-name">Отчество:</label>
-								<input class="form__name-input" name="client-middle-name" id="client-middle-name"
-									placeholder="Отчество, если желаете">
+						</fieldset>
+						<fieldset class="form__fieldset form__fieldset--color form__email">
+							<div class="form__wrapper">
+								<label class="form__legend form__legend--width-email" for="client-email">E-mail:</label>
+								<div class="form__wrapper-mini form__wrapper-mini--width--email">
+									<div class="email-wrapper">
+										<input class="form__email-input" type="email" name="client-email" id="client-email" required
+											placeholder="Ваш Email*">
+										<svg class="form__email-icon" width="32" height="21">
+											<use xlink:href="#icon-email"></use>
+										</svg>
+									</div>
+								</div>
 							</div>
+						</fieldset>
+						<div class="form__wrapper-end">
+							<p class="form__required-text">*Поля обязательны для заполнения</p>
+							<input class="form__order-button button button--color" type="submit" value="ОТПРАВИТЬ ДАННЫЕ">
 						</div>
-					</div>
-				</fieldset>
-				<fieldset class="form__fieldset form__fieldset--color form__number">
-					<div class="form__wrapper">
-						<label class="form__legend form__legend--width-number" for="client-number">Тел:</label>
-						<div class="form__wrapper-mini form__wrapper-mini--width--number">
-							<div class="form__number-wrapper">
-								<input class="form__number-input" type="tel" name="client-number" id="client-number" required
-									placeholder="+7 XXX XXX XX XX*">
-								<svg class="form__number-icon" width="25" height="24">
-									<use xlink:href="#icon-phone"></use>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</fieldset>
-				<fieldset class="form__fieldset form__fieldset--color form__email">
-					<div class="form__wrapper">
-						<label class="form__legend form__legend--width-email" for="client-email">E-mail:</label>
-						<div class="form__wrapper-mini form__wrapper-mini--width--email">
-							<div class="email-wrapper">
-								<input class="form__email-input" type="email" name="client-email" id="client-email" required
-									placeholder="Ваш Email*">
-								<svg class="form__email-icon" width="32" height="21">
-									<use xlink:href="#icon-email"></use>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</fieldset>
-				<div class="form__wrapper-end">
-					<p class="form__required-text">*Поля обязательны для заполнения</p>
-					<input class="form__order-button button button--color" type="submit" value="ОТПРАВИТЬ ДАННЫЕ">
+					</form>
+					<div class="feedback__form-background"></div>
 				</div>
-			</form>
+			</div>
 		</section>
 	</main>
 	<footer class="page-footer">
