@@ -464,6 +464,7 @@ tabsButtons.forEach((function (it, i) {
 
       if (i === index & it.classList.contains("visually-hidden")) {
         it.classList.remove("visually-hidden");
+        $('.catalog__item-pictures').slick('resize');
         var catalogItemPictures = it.querySelectorAll(".catalog__item-pictures");
         Array.from(catalogItemPictures).forEach((function (item) {
           var tabImg = item.querySelector(".catalog__item-img");
