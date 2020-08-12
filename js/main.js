@@ -484,8 +484,7 @@ tabsButtons.forEach((function (it, i) {
           }));
         };
 
-        window.addEventListener("scroll", rescueSizeImage);
-        window.removeEventListener("scroll", rescueSizeImage);
+        window.addEventListener("scroll", rescueSizeImage); // window.removeEventListener(`scroll`, rescueSizeImage);
       }
     }));
   }));
