@@ -484,7 +484,7 @@ var rescueSizeImage = function rescueSizeImage() {
   tabImgs.forEach((function (item) {
     item.style.width = "340px";
     item.style.height = "auto";
-    console.log(it.style);
+    console.log(item.style);
   }));
 };
 
