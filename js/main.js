@@ -474,21 +474,22 @@ tabsButtons.forEach((function (it, i) {
           var marginReset = item.querySelector(".slick-track");
           marginReset.style.margin = 0;
         }));
-
-        var rescueSizeImage = function rescueSizeImage() {
-          var tabImgs = document.querySelectorAll(".catalog__item-img");
-          tabImgs.forEach((function (item) {
-            item.style.width = "340px";
-            item.style.height = "auto";
-            console.log(it.style);
-          }));
-        };
-
-        window.addEventListener("scroll", rescueSizeImage); // window.removeEventListener(`scroll`, rescueSizeImage);
       }
     }));
   }));
 }));
+
+var rescueSizeImage = function rescueSizeImage() {
+  var tabImgs = document.querySelectorAll(".catalog__item-img");
+  tabImgs.forEach((function (item) {
+    item.style.width = "340px";
+    item.style.height = "auto";
+    console.log(it.style);
+  }));
+};
+
+window.addEventListener("scroll", rescueSizeImage); // window.removeEventListener(`scroll`, rescueSizeImage);
+
 window.addEventListener("resize", (function () {
   var tabImgs = document.querySelectorAll(".catalog__item-img");
   tabImgs.forEach((function (it) {
