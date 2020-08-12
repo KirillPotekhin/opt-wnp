@@ -482,7 +482,8 @@ tabsButtons.forEach((function (it, i) {
 var rescueSizeImage = function rescueSizeImage() {
   var tabImgs = document.querySelectorAll(".catalog__item-img");
   tabImgs.forEach((function (item) {
-    item.style.width = "340px";
+    var widthSlickContainer = item.querySelector(".slick-list").offsetWidth;
+    item.style.width = "".concat(widthSlickContainer, "px");
     item.style.height = "auto";
     console.log(item.style);
   }));
