@@ -463,8 +463,8 @@ tabsButtons.forEach((function (it, i) {
       }
 
       if (i === index & it.classList.contains("visually-hidden")) {
-        it.classList.remove("visually-hidden");
-        $('.catalog__item-pictures').slick('resize');
+        it.classList.remove("visually-hidden"); // $('.catalog__item-pictures').slick('resize');
+
         var catalogItemPictures = it.querySelectorAll(".catalog__item-pictures");
         Array.from(catalogItemPictures).forEach((function (item) {
           var tabImg = item.querySelector(".catalog__item-img");
@@ -474,6 +474,18 @@ tabsButtons.forEach((function (it, i) {
           var marginReset = item.querySelector(".slick-track");
           marginReset.style.margin = 0;
         }));
+
+        var rescueSizeImage = function rescueSizeImage() {
+          var tabImgs = document.querySelectorAll(".catalog__item-img");
+          tabImgs.forEach((function (item) {
+            item.style.width = "340px";
+            item.style.height = "auto";
+            console.log(it.style);
+          }));
+        };
+
+        window.addEventListener("scroll", rescueSizeImage);
+        window.removeEventListener("scroll", rescueSizeImage);
       }
     }));
   }));
