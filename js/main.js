@@ -474,7 +474,7 @@ tabsButtons.forEach((function (it, i) {
         //   marginReset.style.margin = 0;
         // });
 
-        $(".slider").slick("reinit");
+        $(".catalog__item-pictures").slick("reinit");
       }
     }));
   }));
