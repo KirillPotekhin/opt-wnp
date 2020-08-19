@@ -412,10 +412,70 @@ var randomInteger = function randomInteger(min, max) {
   return Math.floor(rand);
 };
 
+var translit = function translit(str) {
+  str = str.toLowerCase().replace(/<.+>/, ' ').replace(/\s+/, ' ');
+  var c = {
+    'а': 'a',
+    'б': 'b',
+    'в': 'v',
+    'г': 'g',
+    'д': 'd',
+    'е': 'e',
+    'ё': 'jo',
+    'ж': 'zh',
+    'з': 'z',
+    'и': 'i',
+    'й': 'j',
+    'к': 'k',
+    'л': 'l',
+    'м': 'm',
+    'н': 'n',
+    'о': 'o',
+    'п': 'p',
+    'р': 'r',
+    'с': 's',
+    'т': 't',
+    'у': 'u',
+    'ф': 'f',
+    'х': 'h',
+    'ц': 'c',
+    'ч': 'ch',
+    'ш': 'sh',
+    'щ': 'shch',
+    'ъ': '',
+    'ы': 'y',
+    'ь': '',
+    'э': 'e',
+    'ю': 'ju',
+    'я': 'ja',
+    ' ': '-',
+    ';': '',
+    ':': '',
+    ',': '',
+    '—': '-',
+    '–': '-',
+    '.': '',
+    '«': '',
+    '»': '',
+    '"': '',
+    "'": '',
+    '@': ''
+  };
+  var newStr = new String();
+
+  for (var i = 0; i < str.length; i++) {
+    var ch = str.charAt(i);
+    newStr += ch in c ? c[ch] : ch;
+  }
+
+  return newStr;
+};
+
 var createElements = function createElements(container, products) {
   var content = document.createElement('div');
   products.forEach((function (product, index) {
-    var template = "<article class=\"catalog__item ".concat(index % 2 !== 0 ? "catalog__item--reverse catalog__item--reverse-color" : "", "\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"catalog__item-pictures\">\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide").concat(randomInteger(1, 3), ".jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide2.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide3.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"catalog__item-description\">\n\t\t\t\t\t<table class=\"catalog__table\">\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u041C\u043E\u0434\u0435\u043B\u044C</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.model, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0422\u0438\u043F</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.type, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u0430\u0437\u043C\u0435\u0440</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.sizeSmall !== "" ? "".concat(product.sizeSmall, " / ").concat(product.sizeHigh) : "".concat(product.sizeHigh), "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0421\u043E\u0441\u0442\u0430\u0432</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.composition, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0426\u0432\u0435\u0442</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.color, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u043E\u0437\u043D\u0438\u0447\u043D\u0430\u044F \u0446\u0435\u043D\u0430</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">\n\t\t\t\t\t\t\t\t<table>\n                  <tr class=\"catalog__table-line catalog__table-line--price\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell catalog__table-cell--padding\">".concat(product.sizeSmall, "</td>") : "", "\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--padding\">").concat(product.sizeHigh, "</td>\n\t\t\t\t\t\t\t\t\t</tr>\n                  <tr class=\"catalog__table-line catalog__table-line--price\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell\">".concat(product.priceSmall, "\u0420</td>") : "", "\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.priceHigh, "\u0420</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n    </article>");
+    console.log("key", "".concat(translit(product.model.replace(/\s/g, '-').toLowerCase()), "-").concat(translit(product.type.replace(/\s/g, '').toLowerCase())), index + 1);
+    var template = "<article class=\"catalog__item ".concat(index % 2 !== 0 ? "catalog__item--reverse catalog__item--reverse-color" : "", "\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"catalog__item-pictures\">\n          <div class=\"catalog__item-picture\">\n            <picture>\n              <source media=\"(min-width: 720px)\" srcset=\"img/").concat(translit(product.model.replace(/\s/g, '-').toLowerCase()), "-").concat(translit(product.type.replace(/\s/g, '').toLowerCase()), "-1-1024.jpg\">\n              <img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"").concat(product.model, " ").concat(product.type, " ").concat(index + 1, "\" src=\"img/").concat(translit(product.model.replace(/\s/g, '-').toLowerCase()), "-").concat(translit(product.type.replace(/\s/g, '').toLowerCase()), "-1-800.jpg\">\n            </picture>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n            <picture>\n              <source media=\"(min-width: 720px)\" srcset=\"img/").concat(translit(product.model.replace(/\s/g, '-').toLowerCase()), "-").concat(translit(product.type.replace(/\s/g, '').toLowerCase()), "-2-1024.jpg\">\n              <img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"").concat(product.model, " ").concat(product.type, " ").concat(index + 1, "\" src=\"img/").concat(translit(product.model.replace(/\s/g, '-').toLowerCase()), "-").concat(translit(product.type.replace(/\s/g, '').toLowerCase()), "-2-800.jpg\">\n            </picture>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"catalog__item-picture\">\n\t\t\t\t\t\t<img class=\"catalog__item-img\" width=\"288px\" height=\"288px\" alt=\"\u041D\u0430\u0448\u0438 \u043C\u043E\u0434\u0435\u043B\u0438\" src=\"img/slide3.jpg\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"catalog__item-description\">\n\t\t\t\t\t<table class=\"catalog__table\">\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u041C\u043E\u0434\u0435\u043B\u044C</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.model, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0422\u0438\u043F</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.type, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u0430\u0437\u043C\u0435\u0440</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.sizeSmall !== "" ? "".concat(product.sizeSmall, " / ").concat(product.sizeHigh) : "".concat(product.sizeHigh), "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0421\u043E\u0441\u0442\u0430\u0432</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.composition, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0426\u0432\u0435\u0442</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.color, "</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr class=\"catalog__table-line\">\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--font\">\u0420\u043E\u0437\u043D\u0438\u0447\u043D\u0430\u044F \u0446\u0435\u043D\u0430</td>\n\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">\n\t\t\t\t\t\t\t\t<table>\n                  <tr class=\"catalog__table-line catalog__table-line--price\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell catalog__table-cell--padding\">".concat(product.sizeSmall, "</td>") : "", "\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell catalog__table-cell--padding\">").concat(product.sizeHigh, "</td>\n\t\t\t\t\t\t\t\t\t</tr>\n                  <tr class=\"catalog__table-line catalog__table-line--price\">\n                    ").concat(product.sizeSmall !== "" ? "<td class=\"catalog__table-cell\">".concat(product.priceSmall, "\u0420</td>") : "", "\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<td class=\"catalog__table-cell\">").concat(product.priceHigh, "\u0420</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n    </article>");
     content.insertAdjacentHTML("beforeend", template);
   }));
   container.append(content);
@@ -499,9 +559,10 @@ document.addEventListener('DOMContentLoaded', (function () {
     fetch('/php/mail.php', {
       // файл-обработчик 
       method: 'POST',
-      // headers: {
-      //     'Content-Type': 'application/x-www-form-urlencoded', // отправляемые данные 
-      // },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded' // отправляемые данные 
+
+      },
       body: formData
     }).then((function (response) {
       return console.log('Сообщение отправлено методом fetch');
@@ -516,10 +577,9 @@ document.addEventListener('DOMContentLoaded', (function () {
     forms[i].addEventListener('submit', (function (e) {
       e.preventDefault();
       var formData = new FormData(this);
+      console.log("send mail", formData);
       ajaxSend(formData);
       this.reset(); // очищаем поля формы 
-
-      console.log("send mail");
     }));
   }
 
