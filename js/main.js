@@ -493,3 +493,36 @@ tabsButtons.forEach((function (it, i) {
 //   const tabImgs = document.querySelectorAll(`.catalog__item-img`);
 //   tabImgs.forEach((it) => it.style.width = `100%`);
 // });
+
+document.addEventListener('DOMContentLoaded', (function () {
+  var ajaxSend = function ajaxSend(formData) {
+    fetch('/php/mail.php', {
+      // файл-обработчик 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded' // отправляемые данные 
+
+      },
+      body: formData
+    }).then((function (response) {
+      return console.log('Сообщение отправлено методом fetch');
+    })).catch((function (error) {
+      return console.error(error);
+    }));
+  };
+
+  var forms = document.getElementsByTagName('form');
+
+  for (var i = 0; i < forms.length; i++) {
+    forms[i].addEventListener('submit', (function (e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      ajaxSend(formData);
+      this.reset(); // очищаем поля формы 
+
+      console.log("send mail");
+    }));
+  }
+
+  ;
+}));
