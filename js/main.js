@@ -499,10 +499,9 @@ document.addEventListener('DOMContentLoaded', (function () {
     fetch('/php/mail.php', {
       // файл-обработчик 
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded' // отправляемые данные 
-
-      },
+      // headers: {
+      //     'Content-Type': 'application/x-www-form-urlencoded', // отправляемые данные 
+      // },
       body: formData
     }).then((function (response) {
       return console.log('Сообщение отправлено методом fetch');

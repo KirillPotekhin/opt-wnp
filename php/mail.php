@@ -1,35 +1,22 @@
 <?php
-$method = $_SERVER['REQUEST_METHOD'];
+// несколько получателей
+$to  = 'shapkinsib@gmail.com';
 
-$c = true;
+// тема письма
+$subject = 'Запрос с сайта о сотрудничестве';
 
-$project_name = trim($_POST["project_name"]);
-$admin_email  = trim($_POST["admin_email"]);
-$form_subject = trim($_POST["form_subject"]);
+// текст письма меняется он!!
+$message = $_POST['client-surname'] . '<br />' . $_POST['client-name'] . '<br />' . $_POST['client-middle-name'] . '<br />' . $_POST['client-number'] . '<br />' . $_POST['client-email'];
 
-foreach ( $_POST as $key => $value ) {
-  if ( is_array($value) ) {
-    $value = implode(", ", $value);
-  }
-  if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
-    $message .= "
-    " . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-      <td style='padding: 10px; border: #e2dddd 1px solid;'><b>$key</b></td>
-      <td style='padding: 10px; border: #e2dddd 1px solid;'>$value</td>
-    </tr>
-    ";
-  }
-}
+// Для отправки HTML-письма должен быть установлен заголовок Content-type
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
 
-$message = "<table style='width: 100%;'>$message</table>";
+// Дополнительные заголовки
+$headers .= 'To: Кирилл <shapkinsib@gmail.com>' . "\r\n"; // Свое имя и email
+$headers .= 'From: '. $_POST['client-surname']. $_POST['client-name'] . '<' . $_POST['client-email'] . '>' . "\r\n";
 
-function adopt($text) {
-    return '=?UTF-8?B?'.Base64_encode($text).'?=';
-}
 
-$headers = "MIME-Version: 1.0" . PHP_EOL .
-"Content-Type: text/html; charset=utf-8" . PHP_EOL .
-'From: '.adopt($project_name).' <'.$admin_email.'>' . PHP_EOL .
-'Reply-To: '.$admin_email.'' . PHP_EOL;
-
-mail($admin_email, adopt($form_subject), $message, $headers );
+// Отправляем
+mail($to, $subject, $message, $headers);
+?>
